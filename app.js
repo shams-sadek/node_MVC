@@ -5,12 +5,15 @@ var app = express();
 
 // var homeController = require('./controllers/homeController');
 
-var controllers = require('./controllers/controller');
+var controllers = require('./controllers/controllers');
 
 
-global.dbConnectionString = 'mongodb://127.0.0.1:27017/faiza';
+// Database Connection String
+global.mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://127.0.0.1:27017/faiza');
 
-
+// mongoose.Promise = global.Promise;
 
 /**
  | -----------------------------------------------------------------------------
@@ -21,6 +24,11 @@ global.dbConnectionString = 'mongodb://127.0.0.1:27017/faiza';
 //
 // app.use('/assets', express.static('assets'));
 
+//---------------------------------------------
+
+
+
+//---------------------------------------------
 
 
 

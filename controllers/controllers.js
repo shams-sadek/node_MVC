@@ -13,6 +13,14 @@ module.exports = function(app) {
     // customer
     require('./customerController')(app);
 
+
+    // User Registration
+    require('./UserRegistrationController')(app);
+
+
+    // Talha
+    require('./TalhaController')(app);
+
 }
 
 

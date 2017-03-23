@@ -1,6 +1,9 @@
+<h1>Display Names</h1>
 
 <ul>
-    <% hobbies.forEach(function(item){ %>
-        <li><%= item %></li>
-    <% }) %>
+    {{#each arr}}
+
+        <li>{{ this }}</li>
+
+    {{/each}}
 </ul>

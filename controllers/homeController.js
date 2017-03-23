@@ -19,7 +19,6 @@ module.exports = function(app){
      */
     app.get('/', function(req, res){
 
-
         // res.send('Bus Reservation System');
         res.render('home', { name: 'Shams Sadek'});
 
@@ -31,7 +30,7 @@ module.exports = function(app){
      | -----------------------------------------------------------------------------
      */
     // app.get('/profile', function(req, res){
-    // 
+    //
     //     var viewArgs = { mobile: '01761-586077' };
     //
     //     // pass variable in additional view file

@@ -13,7 +13,8 @@ module.exports = function(app) {
 
     app.get('/profile', function(req, res){
 
-        res.render('profile');
+        res.render('profile', { arr: ['Faiza', 'Roshni', 'Jasim']});
 
     })
+
 }

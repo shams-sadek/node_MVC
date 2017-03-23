@@ -1,7 +1,7 @@
 
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
 
-mongoose.connect(dbConnectionString); // global connection string
+// mongoose.connect(dbConnectionString); // global connection string
 
 
 // Schema Buildup
