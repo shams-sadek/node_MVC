@@ -1,6 +1,7 @@
 var express = require('express')
 var router = express.Router()
 
+
 // middleware that is specific to this router
 router.use(function timeLog (req, res, next) {
   console.log('Time: ', Date.now())
@@ -9,7 +10,9 @@ router.use(function timeLog (req, res, next) {
 
 
 
-// var request = require("request")
+var request = require("request")
+
+// const got = require('got');
 
 /**
  | -----------------------------------------------------------------------------
@@ -18,18 +21,25 @@ router.use(function timeLog (req, res, next) {
  */
 router.get('/', function (req, res) {
 
-    // var url = 'http://localhost:3000/user/list';
-    //
-    // request(url, (error, response, body)=> {
-    //   if (!error && response.statusCode === 200) {
-    //     const fbResponse = JSON.parse(body)
-    //     console.log("Got a response: ", fbResponse.picture)
-    //   } else {
-    //     console.log("Got an error: ", error, ", status code: ", response.statusCode)
-    //   }
-    // })
 
-  res.render('home');
+    var p1 = new Promise(function(resolve, reject){
+
+        var url = 'http://localhost:3000/user/list';
+
+        request(url, function (error, response, body) {
+                if (error) reject(error);
+                resolve(body);
+        });
+
+    })
+
+    var p2 = ['shams', 'sadek'];
+
+    Promise.all([p1, p2]).then(function(values){
+
+               res.render('home', { p1: values[0], p2: values[1] });
+
+           })
 
 })
 
