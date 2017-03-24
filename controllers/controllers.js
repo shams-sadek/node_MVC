@@ -18,8 +18,8 @@ module.exports = function(app) {
     require('./UserRegistrationController')(app);
 
 
-    // Talha
-    require('./TalhaController')(app);
+    // User API
+    require('./api/UserApi')(app);
 
 }
 

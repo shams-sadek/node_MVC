@@ -8,7 +8,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 // user model
 var User = require('./../models/user');
 
-// var Promise = require('mpromise');
+var Promise = require('mpromise');
 
 module.exports = function(app) {
 
@@ -42,33 +42,15 @@ module.exports = function(app) {
     app.get('/user-list', function(req, res){
 
 
-        var abc = new Promise(function (fulfill, reject){
-
+        function abc(result=null){
             User.find({}, function(err, data){
-                if (err) reject(err);
-
-                else return fulfill(res);
-
-            });
-
-            // fs.readFile(filename, enc, function (err, res){
-            //   if (err) reject(err);
-            //   else fulfill(res);
-            // });
-          });
+                if (err) throw err;
+                else return data;
+            })
+        }
 
 
-        res.send(abc);
-
-        console.log(abc);
-
-        // res.send(a);
-        // User.find({}, function(err, data){
-        //
-        //     res.render('user/user_list', { user: data });
-        //
-        // });
-
+        console.log(abc());
 
     })
 

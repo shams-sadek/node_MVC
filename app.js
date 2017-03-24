@@ -1,6 +1,8 @@
 
 var express = require('express');
 
+var router = express.Router();
+
 var app = express();
 
 // var homeController = require('./controllers/homeController');
@@ -10,7 +12,7 @@ var controllers = require('./controllers/controllers');
 
 // Database Connection String
 global.mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
+// mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://127.0.0.1:27017/faiza');
 
 // mongoose.Promise = global.Promise;
@@ -29,9 +31,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/faiza');
 
 
 //---------------------------------------------
-
-
-
 
 /**
  | ---------------------------------------------------------
@@ -58,9 +57,8 @@ app.use('/assets', express.static('assets'));
  | -----------------------------------------------------------------------------
  */
  controllers(app);
-// homeController(app);
 
-
+app.use(require('./apis'));
 
 
 
