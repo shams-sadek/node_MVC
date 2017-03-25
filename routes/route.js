@@ -14,5 +14,9 @@ module.exports = function(app){
     app.use('/birds', require('./birds'));
 
 
+    // user
+    app.use('/user', require('./userRoute'));
+
+
 
 }

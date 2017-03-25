@@ -1,10 +1,17 @@
 
 // Schema Buildup
 var Schema = mongoose.Schema({
-    name: String,
+    name: {
+        type: String,
+        required: [true, 'Name field is required']
+    },
     // email: { type: String, unique: true},
     email: { type: String },
-    password: { type: String}
+    password: { type: String},
+    available: {
+        type: Boolean,
+        default: false
+    }
 });
 
 

@@ -6,6 +6,33 @@
 var express = require('express');
 var app = express();
 
+const bodyParser = require('body-parser');
+
+
+app.use(bodyParser.json())
+
+
+/**
+ | -----------------------------------------------------------------------------
+ | mongoose Database Connection String
+ | -----------------------------------------------------------------------------
+ */
+global.mongoose = require('mongoose');
+
+// mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://127.0.0.1:27017/faiza');
+mongoose.Promise = global.Promise;
+
+
+
+
+/**
+ | ---------------------------------------------------------
+ | global variables
+ | ---------------------------------------------------------
+ */
+
+global.globalUrl = 'http://localhost:3000';
 
 
 
@@ -29,6 +56,17 @@ var app = express();
  api(app);
 
 
+
+
+ /**
+  | ----------------------------------------------------------------------------
+  | error handling middleware
+  | ----------------------------------------------------------------------------
+  */
+ app.use(function(err, req, res, next){
+     console.log(err);
+    res.status(422).send({ error: err });
+ });
 
 
 

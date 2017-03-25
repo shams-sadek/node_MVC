@@ -24,7 +24,7 @@ router.get('/', function (req, res) {
 
     var p1 = new Promise(function(resolve, reject){
 
-        var url = 'http://localhost:3000/user/list';
+        var url = globalUrl + '/api/user/list';
 
         request(url, function (error, response, body) {
                 if (error) reject(error);
@@ -39,7 +39,7 @@ router.get('/', function (req, res) {
 
                res.render('home', { p1: values[0], p2: values[1] });
 
-           })
+           });
 
 })
 
